@@ -5,6 +5,108 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>සමූපාකාර සාමාජික කළමනාකරණය</title>
   <style>
+    /* LOGIN PAGE STYLES */
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), 
+              url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.login-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-card h2 {
+  margin-top: 0;
+  color: #1e3a8a;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.login-card p {
+  color: #64748b;
+  font-size: 13px;
+  margin-bottom: 25px;
+}
+
+.login-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.login-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  font-size: 13px;
+  color: #334155;
+}
+
+.login-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.login-group input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.btn-login {
+  width: 100%;
+  background: #2563eb;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.error-msg {
+  color: #dc2626;
+  font-size: 13px;
+  margin-bottom: 15px;
+  display: none;
+}
+
+.app-container {
+  display: none;
+}
+
+.logout-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+}
+
+.btn-logout {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
     body {
       font-family: 'Iskoola Pota', 'Noto Sans Sinhala', Arial, sans-serif;
       margin: 0;
