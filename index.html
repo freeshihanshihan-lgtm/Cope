@@ -223,41 +223,36 @@
 </head>
 <body>
 
-  <div class="container">
-    <div id="appScreen" class="app-container">
-      <!-- 1. LOGIN SCREEN -->
-<div id="loginScreen" class="login-wrapper">
-  <div class="login-card">
-    <h2>සීමාසහිත දෙවිනුවර විවිධ සේවා සමූපාකාර සමිතිය</h2>
-    <p>පද්ධතියට ප්‍රවේශ වීම සඳහා ඇතුළත් වන්න</p>
-    
-    <div id="errorMsg" class="error-msg">පරිශීලක නාමය හෝ මුරපදය වැරදියි!</div>
+  <!-- 1. LOGIN SCREEN -->
+  <div id="loginScreen" class="login-wrapper">
+    <div class="login-card">
+      <h2>සීමාසහිත දෙවිනුවර විවිධ සේවා සමූපාකාර සමිතිය</h2>
+      <p>පද්ධතියට ප්‍රවේශ වීම සඳහා ඇතුළත් වන්න</p>
 
-    <form id="loginForm" onsubmit="handleLogin(event)" style="background:none; padding:0; margin:0;">
-      <div class="login-group">
-        <label for="username">පරිශීලක නාමය (Username)</label>
-        <input type="text" id="username" placeholder="Username ඇතුළත් කරන්න" required>
-      </div>
-      <div class="login-group">
-        <label for="password">මුරපදය (Password)</label>
-        <input type="password" id="password" placeholder="Password ඇතුළත් කරන්න" required>
-      </div>
-      <button type="submit" class="btn-login">ලොග් වන්න (Login)</button>
-    </form>
-  </div>
-</div>
+      <div id="errorMsg" class="error-msg">පරිශීලක හැඳුනුම හෝ මුරපදය වැරදියි!</div>
 
-<!-- 2. MAIN APP SCREEN (ඔබගේ පරණ කෝඩ් එක මෙතැනින් ආරම්භ කරන්න) -->
-<div id="appScreen" class="app-container">
-  
-  <!-- Logout Button එක -->
-  <div class="logout-bar no-print">
-    <button onclick="handleLogout()" class="btn-logout">🔒 නික්මෙන්න (Logout)</button>
+      <form id="loginForm" onsubmit="handleLogin(event)" style="background:none; padding:0; margin:0;">
+        <div class="login-group">
+          <label for="userId">පරිශීලක හැඳුනුම (User ID)</label>
+          <input type="text" id="userId" placeholder="User ID ඇතුළත් කරන්න" autocomplete="username" required>
+        </div>
+        <div class="login-group">
+          <label for="password">මුරපදය (Password)</label>
+          <input type="password" id="password" placeholder="Password ඇතුළත් කරන්න" autocomplete="current-password" required>
+        </div>
+        <button type="submit" class="btn-login">ලොග් වන්න (Login)</button>
+      </form>
+    </div>
   </div>
 
-  <!-- මෙතැන සිට ඔබගේ පරණ <div class="container">...</div> කෝඩ් එක තබන්න -->
+  <!-- 2. MAIN APP SCREEN -->
+  <div id="appScreen" class="app-container">
+    <div class="container">
 
-</div> <!-- appScreen wrapper එක අවසන් -->
+      <!-- Logout Button එක -->
+      <div class="logout-bar no-print">
+        <button onclick="handleLogout()" class="btn-logout">🔒 නික්මෙන්න (Logout)</button>
+      </div>
     <!-- HEADER LOGOS -->
     <div class="header">
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="60" height="60" style="width: 60px !important; height: 60px !important;" viewBox="0 0 447 447">
@@ -1655,12 +1650,13 @@
     // LOGIN LOGIC
 function handleLogin(e) {
   e.preventDefault();
-  const u = document.getElementById('username').value;
+  const u = document.getElementById('userId').value.trim();
   const p = document.getElementById('password').value;
 
-  // මෙතැනින් පරිශීලක නාමය සහ මුරපදය වෙනස් කළ හැක
+  // මෙතැනින් User ID සහ මුරපදය වෙනස් කළ හැක
   if (u === 'admin' && p === '1234') {
     sessionStorage.setItem('isLoggedIn', 'true');
+    document.getElementById('errorMsg').style.display = 'none';
     showApp();
   } else {
     document.getElementById('errorMsg').style.display = 'block';
