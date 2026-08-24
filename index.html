@@ -226,6 +226,10 @@
   <!-- 1. LOGIN SCREEN -->
   <div id="loginScreen" class="login-wrapper">
     <div class="login-card">
+      <div style="display:flex; align-items:center; justify-content:center; gap:20px; margin-bottom:16px;">
+        <img src="./logo-round.svg" alt="සමිතියේ ලාංඡනය" style="width:75px; height:75px; object-fit:contain;">
+        <img src="./logo-coop.svg" alt="සමූපකාර ලාංඡනය" style="width:90px; height:45px; object-fit:contain;">
+      </div>
       <h2>සීමාසහිත දෙවිනුවර විවිධ සේවා සමූපාකාර සමිතිය</h2>
       <p>පද්ධතියට ප්‍රවේශ වීම සඳහා ඇතුළත් වන්න</p>
 
@@ -1621,7 +1625,7 @@
           <option value="ගන්දර">ගන්දර</option>
           <option value="කන්දගොඩැල්ල">කන්දගොඩැල්ල</option>
           <option value="කපුගම">කපුගම</option>
-          <option value="අපරැක්ක">අපරැක්ක</option>
+          <option value="අපරැක්��">අපරැක්ක</option>
           <option value="නා ඔටුන්න">නා ඔටුන්න</option>
         </select>
         <button onclick="printSummary()" class="btn btn-pdf">📄 නාම ලේඛනය PDF ගන්න</button>
@@ -1654,7 +1658,7 @@ function handleLogin(e) {
   const p = document.getElementById('password').value;
 
   // මෙතැනින් User ID සහ මුරපදය වෙනස් කළ හැක
-  if (u === 'admin' && p === '1234') {
+  if (u === '404' && p === '1313') {
     sessionStorage.setItem('isLoggedIn', 'true');
     document.getElementById('errorMsg').style.display = 'none';
     showApp();
